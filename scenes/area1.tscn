@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuqxv2olema2t"]
+
+[ext_resource type="PackedScene" uid="uid://d0v8dqjtc1fl3" path="res://scenes/enemy.tscn" id="1_00fkr"]
+[ext_resource type="PackedScene" uid="uid://darwvbst36yle" path="res://scenes/ground.tscn" id="1_p8ebg"]
+[ext_resource type="PackedScene" uid="uid://dj0g4exfg6ch6" path="res://scenes/character.tscn" id="2_qj5f0"]
+[ext_resource type="PackedScene" uid="uid://ct8j2i1c1vws8" path="res://scenes/wall.tscn" id="3_qj5f0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p8ebg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="enemy" parent="." instance=ExtResource("1_00fkr")]
+position = Vector2(350, -62)
+
+[node name="floor" parent="." instance=ExtResource("1_p8ebg")]
+position = Vector2(-1, 0)
+
+[node name="character" parent="." instance=ExtResource("2_qj5f0")]
+position = Vector2(1, -1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_p8ebg")
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(206, 50)
+scale = Vector2(4.1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(313, 0, 313, -32, 354, -32, 354, -63, 395, -63, 395, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(313, 0, 313, -32, 354, -32, 354, -63, 395, -63, 395, 0)
+
+[node name="wall" parent="." instance=ExtResource("3_qj5f0")]
+position = Vector2(407, -265)

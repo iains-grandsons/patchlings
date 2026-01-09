@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj0g4exfg6ch6"]
+
+[ext_resource type="Script" uid="uid://bo0rit3orv845" path="res://character.gd" id="1_rkhd4"]
+[ext_resource type="Texture2D" uid="uid://c3nnnj6vtcdgg" path="res://sprites/Knight_Sprite.png" id="2_lrhn5"]
+[ext_resource type="Script" uid="uid://d3t0fr1dc012i" path="res://scenes/camera_2d.gd" id="3_lrhn5"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_rkhd4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, -15)
+texture = ExtResource("2_lrhn5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(3, 0)
+polygon = PackedVector2Array(5, 0, 16, 0, 20, -15, 19, -22, 16, -29, 2, -29, 1, -16, 5, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_lrhn5")
