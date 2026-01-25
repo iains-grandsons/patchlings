@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://t25mflhimqla"]
+[gd_scene load_steps=3 format=3 uid="uid://t25mflhimqla"]
 
 [ext_resource type="Script" uid="uid://bqf5mn46g7vbw" path="res://scripts/battleHUD.gd" id="1_m411j"]
+
+[sub_resource type="Theme" id="Theme_m411j"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_m411j")
@@ -69,6 +71,24 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 70
 text = "ITEMS"
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_right = 490.0
+grow_vertical = 0
+
+[node name="EnemyHealth" type="ProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -490.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme = SubResource("Theme_m411j")
+value = 40.0
 
 [connection signal="pressed" from="Panel/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Panel/Attack" to="Panel" method="_on_attack_pressed"]

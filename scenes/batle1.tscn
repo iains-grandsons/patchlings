@@ -27,6 +27,7 @@ scale = Vector2(5.9, 5.9)
 script = ExtResource("5_uqtxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="enemyFight"]
+position = Vector2(-14.40678, 0)
 texture = ExtResource("4_qviw6")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_qviw6")]
