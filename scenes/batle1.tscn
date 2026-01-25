@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct4142kqiecqg"]
 
-[ext_resource type="Script" uid="uid://blmiafgkuv8jo" path="res://scenes/battleHandler.gd" id="1_ti3ha"]
+[ext_resource type="Script" uid="uid://blmiafgkuv8jo" path="res://scripts/battleHandler.gd" id="1_ti3ha"]
 [ext_resource type="Texture2D" uid="uid://cubolhyohdxi4" path="res://sprites/Floor.png" id="2_2gud3"]
 [ext_resource type="PackedScene" uid="uid://bttlgfsntpney" path="res://scenes/hud.tscn" id="3_by27h"]
 [ext_resource type="Texture2D" uid="uid://dqbe611a74r" path="res://sprites/Cropling_sprite.png" id="3_roj0w"]
 [ext_resource type="Texture2D" uid="uid://cvh5b2v3wfurj" path="res://sprites/Enemy_sprite.png" id="4_qviw6"]
 [ext_resource type="PackedScene" uid="uid://t25mflhimqla" path="res://scenes/battleHUD.tscn" id="5_qviw6"]
-[ext_resource type="Script" uid="uid://dweyh1gy3g6w4" path="res://scenes/enemyfight.gd" id="5_uqtxt"]
-[ext_resource type="Script" uid="uid://pvhyhqptul18" path="res://scenes/playerStats.gd" id="7_nwp1b"]
+[ext_resource type="Script" uid="uid://dweyh1gy3g6w4" path="res://scripts/enemyfight.gd" id="5_uqtxt"]
+[ext_resource type="Script" uid="uid://pvhyhqptul18" path="res://scripts/playerStats.gd" id="7_nwp1b"]
 
 [node name="battleHandler" type="Node"]
 script = ExtResource("1_ti3ha")

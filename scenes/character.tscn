@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dj0g4exfg6ch6"]
 
 [ext_resource type="Script" uid="uid://bo0rit3orv845" path="res://scripts/character.gd" id="1_rkhd4"]
-[ext_resource type="Script" uid="uid://d3t0fr1dc012i" path="res://scenes/camera_2d.gd" id="3_lrhn5"]
+[ext_resource type="Script" uid="uid://d3t0fr1dc012i" path="res://scripts/camera_2d.gd" id="3_lrhn5"]
 [ext_resource type="Texture2D" uid="uid://trefnelwuy0p" path="res://animations/Knight_Walk_SS.png" id="3_my7n2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp8ca"]

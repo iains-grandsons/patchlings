@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0v8dqjtc1fl3"]
 
-[ext_resource type="Script" uid="uid://dt8fe1udeql8x" path="res://scenes/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dt8fe1udeql8x" path="res://scripts/enemy.gd" id="1_7p1mj"]
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_7p1mj")
