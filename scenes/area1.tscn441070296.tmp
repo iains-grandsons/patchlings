@@ -38,4 +38,3 @@ position = Vector2(407, -265)
 [node name="character" parent="." instance=ExtResource("2_qj5f0")]
 
 [node name="HUD" parent="." instance=ExtResource("5_1l0vc")]
-visible = true

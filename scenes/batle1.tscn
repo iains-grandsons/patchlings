@@ -1,10 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct4142kqiecqg"]
+[gd_scene load_steps=9 format=3 uid="uid://ct4142kqiecqg"]
 
-[ext_resource type="PackedScene" uid="uid://dj0g4exfg6ch6" path="res://scenes/character.tscn" id="1_2gud3"]
-[ext_resource type="PackedScene" uid="uid://darwvbst36yle" path="res://scenes/ground.tscn" id="2_by27h"]
+[ext_resource type="Script" uid="uid://blmiafgkuv8jo" path="res://scenes/battleHandler.gd" id="1_ti3ha"]
+[ext_resource type="Texture2D" uid="uid://cubolhyohdxi4" path="res://sprites/Floor.png" id="2_2gud3"]
+[ext_resource type="PackedScene" uid="uid://bttlgfsntpney" path="res://scenes/hud.tscn" id="3_by27h"]
+[ext_resource type="Texture2D" uid="uid://dqbe611a74r" path="res://sprites/Cropling_sprite.png" id="3_roj0w"]
+[ext_resource type="Texture2D" uid="uid://cvh5b2v3wfurj" path="res://sprites/Enemy_sprite.png" id="4_qviw6"]
+[ext_resource type="PackedScene" uid="uid://t25mflhimqla" path="res://scenes/battleHUD.tscn" id="5_qviw6"]
+[ext_resource type="Script" uid="uid://dweyh1gy3g6w4" path="res://scenes/enemyfight.gd" id="5_uqtxt"]
+[ext_resource type="Script" uid="uid://pvhyhqptul18" path="res://scenes/playerStats.gd" id="7_nwp1b"]
 
-[node name="Node2D" type="Node2D"]
+[node name="battleHandler" type="Node"]
+script = ExtResource("1_ti3ha")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_2gud3")]
+[node name="HUD" parent="." instance=ExtResource("3_by27h")]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("2_by27h")]
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(0.5000112, -2.6249847)
+scale = Vector2(4.8041663, 4.820371)
+texture = ExtResource("2_2gud3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="enemyFight" type="Node2D" parent="."]
+position = Vector2(364, -86)
+scale = Vector2(5.9, 5.9)
+script = ExtResource("5_uqtxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemyFight"]
+texture = ExtResource("4_qviw6")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_qviw6")]
+
+[node name="player" type="Node2D" parent="."]
+script = ExtResource("7_nwp1b")
+
+[node name="CroplingSprite" type="Sprite2D" parent="player"]
+position = Vector2(-295.95, 97.000015)
+scale = Vector2(5.9, 5.124)
+texture = ExtResource("3_roj0w")
+
+[connection signal="playerAttack1" from="CanvasLayer" to="." method="_on_canvas_layer_player_attack_1"]
+[connection signal="playerAttack2" from="CanvasLayer" to="." method="_on_canvas_layer_player_attack_2"]
+[connection signal="updateStats" from="player" to="." method="_on_player_update_stats"]

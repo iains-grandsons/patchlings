@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://t25mflhimqla"]
+
+[ext_resource type="Script" uid="uid://bqf5mn46g7vbw" path="res://scenes/battleHUD.gd" id="1_m411j"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_m411j")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 542.0
+offset_top = -218.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Attack" type="Button" parent="Panel"]
+layout_mode = 1
+offset_right = 560.0
+offset_bottom = 200.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(0.8289872, 0, 0.0013942516, 1)
+theme_override_colors/icon_pressed_color = Color(0.50330955, 0, 0.09648041, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 70
+text = "ATTACK"
+
+[node name="Heal" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_right = 280.0
+offset_bottom = 200.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 70
+text = "HEAL"
+
+[node name="Items" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 560.0
+offset_bottom = 100.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 70
+text = "FLEE"
+
+[node name="Flee" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -100.0
+offset_right = 280.0
+offset_bottom = 100.00101
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 70
+text = "ITEMS"
+
+[connection signal="pressed" from="Panel/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel/Attack" to="Panel" method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel/Heal" to="." method="_on_heal_pressed"]
+[connection signal="pressed" from="Panel/Heal" to="Panel" method="_on_heal_pressed"]
+[connection signal="pressed" from="Panel/Items" to="Panel" method="_on_items_pressed"]
+[connection signal="pressed" from="Panel/Flee" to="Panel" method="_on_flee_pressed"]
