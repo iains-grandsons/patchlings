@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://t25mflhimqla"]
+[gd_scene load_steps=8 format=3 uid="uid://t25mflhimqla"]
 
 [ext_resource type="Script" uid="uid://bqf5mn46g7vbw" path="res://scripts/battleHUD.gd" id="1_m411j"]
 [ext_resource type="Script" uid="uid://dlv5hyc4jm6q6" path="res://scripts/player_health_bar.gd" id="2_hwolu"]
-[ext_resource type="Theme" uid="uid://m15g7sntrnn2" path="res://styleboxes/itemButtonPlaceHolder.tres" id="2_hyr3o"]
-[ext_resource type="Theme" uid="uid://dkfv3cld64ge6" path="res://styleboxes/healthBarPlaceHolder.tres" id="2_ksnj4"]
+[ext_resource type="Theme" uid="uid://c0cpjwh8n0ilr" path="res://styleboxes/AttackButton.tres" id="2_v1psi"]
+[ext_resource type="Theme" uid="uid://d2t15ny18dhxl" path="res://styleboxes/HealButton.tres" id="3_h8yng"]
 [ext_resource type="Script" uid="uid://qhx8pkr1aa6a" path="res://scripts/enemy_health_bar.gd" id="3_ksnj4"]
+[ext_resource type="Theme" uid="uid://22tpgihx7djv" path="res://styleboxes/ItemsButton.tres" id="4_hisfm"]
+[ext_resource type="Theme" uid="uid://b4hvr54qlcnuc" path="res://styleboxes/FleeButton.tres" id="5_p5i85"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_m411j")
@@ -21,42 +23,41 @@ grow_vertical = 0
 
 [node name="Attack" type="Button" parent="Panel"]
 layout_mode = 1
-offset_right = 560.0
-offset_bottom = 200.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 593.0
+offset_bottom = 213.0
 scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(0.8289872, 0, 0.0013942516, 1)
-theme_override_colors/icon_pressed_color = Color(0.50330955, 0, 0.09648041, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme = ExtResource("2_v1psi")
 theme_override_font_sizes/font_size = 70
-text = "ATTACK"
 
 [node name="Heal" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -280.0
-offset_right = 280.0
-offset_bottom = 200.0
+offset_left = -300.0
+offset_top = 5.0
+offset_right = 288.0
+offset_bottom = 213.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_h8yng")
 theme_override_font_sizes/font_size = 70
-text = "HEAL"
 
 [node name="Items" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 560.0
+offset_left = 5.0
+offset_top = -108.0
+offset_right = 593.0
 offset_bottom = 100.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
-theme = ExtResource("2_hyr3o")
+theme = ExtResource("4_hisfm")
 theme_override_font_sizes/font_size = 70
-text = "ITEMS"
 
 [node name="Flee" type="Button" parent="Panel"]
 layout_mode = 1
@@ -65,15 +66,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -280.0
-offset_top = -100.0
-offset_right = 280.0
-offset_bottom = 100.00101
+offset_left = -300.0
+offset_top = -108.0
+offset_right = 288.0
+offset_bottom = 100.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_p5i85")
 theme_override_font_sizes/font_size = 70
-text = "FLEE"
 
 [node name="PlayerHealth" type="ProgressBar" parent="."]
 anchors_preset = 2
@@ -82,7 +83,7 @@ anchor_bottom = 1.0
 offset_top = -68.0
 offset_right = 490.0
 grow_vertical = 0
-theme = ExtResource("2_ksnj4")
+theme = ExtResource("4_hisfm")
 script = ExtResource("2_hwolu")
 
 [node name="EnemyHealth" type="ProgressBar" parent="."]
@@ -92,7 +93,7 @@ anchor_right = 1.0
 offset_left = -490.0
 offset_bottom = 68.0
 grow_horizontal = 0
-theme = ExtResource("2_ksnj4")
+theme = ExtResource("4_hisfm")
 value = 40.0
 script = ExtResource("3_ksnj4")
 

@@ -63,3 +63,15 @@ func _on_canvas_layer_player_attack_2() -> void:
 func _on_battle_hud_flee() -> void:
 	get_tree().change_scene_to_file("res://scenes/area1.tscn")
 	pass
+
+
+func _on_enemy_fight_player_turn_start(move: Variant) -> void:
+	if (!playerTurn):
+		if (move[0] == 'd'):
+			playerHealth -= move[1]
+			playerTurn = true
+		elif (move[0] == 'h'):
+			enemyHealth += move[1]
+			playerTurn = true
+	updateHealthBars.emit(playerHealth, enemyHealth)
+	pass # Replace with function body.

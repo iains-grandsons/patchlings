@@ -43,6 +43,7 @@ texture = ExtResource("3_roj0w")
 [connection signal="enemyTurn" from="." to="enemyFight" method="_on_battle_handler_enemy_turn"]
 [connection signal="updateHealthBars" from="." to="battleHUD" method="_on_battle_handler_update_health_bars"]
 [connection signal="updateHealthBars" from="." to="player" method="_on_battle_handler_update_health_bars"]
+[connection signal="playerTurnStart" from="enemyFight" to="." method="_on_enemy_fight_player_turn_start"]
 [connection signal="flee" from="battleHUD" to="." method="_on_battle_hud_flee"]
 [connection signal="playerAttack1" from="battleHUD" to="." method="_on_canvas_layer_player_attack_1"]
 [connection signal="playerAttack2" from="battleHUD" to="." method="_on_canvas_layer_player_attack_2"]
