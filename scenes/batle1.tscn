@@ -30,7 +30,7 @@ script = ExtResource("5_uqtxt")
 position = Vector2(-14.40678, 0)
 texture = ExtResource("4_qviw6")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_qviw6")]
+[node name="battleHUD" parent="." instance=ExtResource("5_qviw6")]
 
 [node name="player" type="Node2D" parent="."]
 script = ExtResource("7_nwp1b")
@@ -40,6 +40,10 @@ position = Vector2(-295.95, 97.000015)
 scale = Vector2(5.9, 5.124)
 texture = ExtResource("3_roj0w")
 
-[connection signal="playerAttack1" from="CanvasLayer" to="." method="_on_canvas_layer_player_attack_1"]
-[connection signal="playerAttack2" from="CanvasLayer" to="." method="_on_canvas_layer_player_attack_2"]
+[connection signal="enemyTurn" from="." to="enemyFight" method="_on_battle_handler_enemy_turn"]
+[connection signal="updateHealthBars" from="." to="battleHUD" method="_on_battle_handler_update_health_bars"]
+[connection signal="updateHealthBars" from="." to="player" method="_on_battle_handler_update_health_bars"]
+[connection signal="flee" from="battleHUD" to="." method="_on_battle_hud_flee"]
+[connection signal="playerAttack1" from="battleHUD" to="." method="_on_canvas_layer_player_attack_1"]
+[connection signal="playerAttack2" from="battleHUD" to="." method="_on_canvas_layer_player_attack_2"]
 [connection signal="updateStats" from="player" to="." method="_on_player_update_stats"]

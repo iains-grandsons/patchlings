@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://t25mflhimqla"]
+[gd_scene load_steps=6 format=3 uid="uid://t25mflhimqla"]
 
 [ext_resource type="Script" uid="uid://bqf5mn46g7vbw" path="res://scripts/battleHUD.gd" id="1_m411j"]
-
-[sub_resource type="Theme" id="Theme_m411j"]
+[ext_resource type="Script" uid="uid://dlv5hyc4jm6q6" path="res://scripts/player_health_bar.gd" id="2_hwolu"]
+[ext_resource type="Theme" uid="uid://m15g7sntrnn2" path="res://styleboxes/itemButtonPlaceHolder.tres" id="2_hyr3o"]
+[ext_resource type="Theme" uid="uid://dkfv3cld64ge6" path="res://styleboxes/healthBarPlaceHolder.tres" id="2_ksnj4"]
+[ext_resource type="Script" uid="uid://qhx8pkr1aa6a" path="res://scripts/enemy_health_bar.gd" id="3_ksnj4"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_m411j")
@@ -52,8 +54,9 @@ offset_right = 560.0
 offset_bottom = 100.0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_hyr3o")
 theme_override_font_sizes/font_size = 70
-text = "FLEE"
+text = "ITEMS"
 
 [node name="Flee" type="Button" parent="Panel"]
 layout_mode = 1
@@ -70,7 +73,7 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 70
-text = "ITEMS"
+text = "FLEE"
 
 [node name="PlayerHealth" type="ProgressBar" parent="."]
 anchors_preset = 2
@@ -79,6 +82,8 @@ anchor_bottom = 1.0
 offset_top = -68.0
 offset_right = 490.0
 grow_vertical = 0
+theme = ExtResource("2_ksnj4")
+script = ExtResource("2_hwolu")
 
 [node name="EnemyHealth" type="ProgressBar" parent="."]
 anchors_preset = 1
@@ -87,12 +92,13 @@ anchor_right = 1.0
 offset_left = -490.0
 offset_bottom = 68.0
 grow_horizontal = 0
-theme = SubResource("Theme_m411j")
+theme = ExtResource("2_ksnj4")
 value = 40.0
+script = ExtResource("3_ksnj4")
 
+[connection signal="updateEnemyHealth" from="." to="EnemyHealth" method="_on_canvas_layer_update_enemy_health"]
+[connection signal="updatePlayerHealth" from="." to="PlayerHealth" method="_on_canvas_layer_update_player_health"]
 [connection signal="pressed" from="Panel/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="Panel/Attack" to="Panel" method="_on_attack_pressed"]
 [connection signal="pressed" from="Panel/Heal" to="." method="_on_heal_pressed"]
-[connection signal="pressed" from="Panel/Heal" to="Panel" method="_on_heal_pressed"]
-[connection signal="pressed" from="Panel/Items" to="Panel" method="_on_items_pressed"]
-[connection signal="pressed" from="Panel/Flee" to="Panel" method="_on_flee_pressed"]
+[connection signal="pressed" from="Panel/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="Panel/Flee" to="." method="_on_flee_pressed"]
