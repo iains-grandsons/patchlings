@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://darwvbst36yle"]
+[gd_scene load_steps=3 format=3 uid="uid://darwvbst36yle"]
+
+[ext_resource type="Texture2D" uid="uid://kowrmrrpumx5" path="res://sprites/floor_area_1.png" id="1_pybca"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mi8v4"]
 
@@ -11,10 +13,6 @@ metadata/_edit_group_ = true
 polygon = PackedVector2Array(0, 0, 410, 0, 410, 91, 0, 91)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(206, 50)
-scale = Vector2(4.1, 1)
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0.9975669, 0)
-scale = Vector2(0.99756694, 1)
-polygon = PackedVector2Array(-1, 0, 410, 0, 410, 91, -1, 91)
+position = Vector2(204.99997, 36)
+scale = Vector2(2.0499997, 2.8)
+texture = ExtResource("1_pybca")

@@ -1,16 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0v8dqjtc1fl3"]
+[gd_scene load_steps=3 format=3 uid="uid://d0v8dqjtc1fl3"]
 
 [ext_resource type="Script" uid="uid://dt8fe1udeql8x" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://dqdm8bsf5qyv7" path="res://sprites/Eggplant_World.png" id="2_md0e3"]
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_7p1mj")
 metadata/_edit_group_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 0.2, 1, 1)
-polygon = PackedVector2Array(14, -1, 14, -16, 3, -24, 3, -38, 14, -44, 28, -44, 39, -39, 39, -25, 27, -16, 27, -1)
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-14, -44, -16, -1, 14, -1, 27, -1, 62, -1, 47, -59, -4, -58)
+polygon = PackedVector2Array(-6, -9, -12, -8, -13, 8, -5, 9, 6, 9, 8, 4, 8, -7, 3, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_md0e3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
